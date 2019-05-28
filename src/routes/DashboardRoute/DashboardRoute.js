@@ -1,5 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import LanguageApiService from '../../services/language-api-service';
+import Header from '../../components/Header/Header';
+import Progress from '../../components/Progress/Progress';
 
 
 class DashboardRoute extends Component {
@@ -22,9 +24,9 @@ class DashboardRoute extends Component {
   
   render() {
     return (
-      <section>
-        implement and style me
-      </section>
+      <>
+        <Progress language={this.state.language} words={this.state.words}/>
+      </>
     );
   }
 }
