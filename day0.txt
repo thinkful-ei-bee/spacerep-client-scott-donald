@@ -1,0 +1,68 @@
+/// API ///
+
+Which database tables are created in the migrations?
+
+user, language, word
+
+What are the endpoints for user registration, login and refresh?
+
+'/api/auth', '/api/user'
+
+What endpoints have been implemented in the language router?
+
+'/api/auth', '/api/user', '/api/language'
+
+What is the async and await syntax for? (Hint)
+
+async wraps output as promise; await forces js to wait for promise to be returned
+
+Which endpoints need implementing in the language router?
+
+'/api/language', '/api/user'
+
+How does the GET /api/language endpoint decide which language to respond with? (Hint: Does it relate to the user that made the request?)
+
+checks user table
+
+In the UserService.populateUserWords method, what is db.transaction?
+Hints:
+https://knexjs.org/#Transactions
+https://knexjs.org/#Builder-transacting
+https://www.postgresql.org/docs/8.3/tutorial-transactions.html
+https://www.tutorialspoint.com/postgresql/postgresql_transactions.htm
+
+compartmentalizes sql so that it runs as single block of code
+
+What is SERIAL in the create migration files? (Hint)
+
+an upward incrementing number data type in postgres
+
+What is setval in the seed file? (Hint)
+
+explicitly updates sequence values
+
+/// Front-End ///
+
+Which routes are already set up and what are their paths?
+
+Login, not found, registration
+
+What is the concern of the AuthApiService object?
+
+? (imported in ./contexts/UserContext.js)
+
+What is the concern of the UserContext?
+
+? (imported in ./index.js)
+
+Does the PrivateRoute make use of the UserContext?
+
+Yes
+
+What does the /cypress/integration/day-0.1-purpose.spec.js file test?
+
+The file tests whether the page has the right content on load
+
+Which elements on the page are being checked in and what for?
+
+h1 and p
