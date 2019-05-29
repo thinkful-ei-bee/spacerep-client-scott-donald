@@ -18,7 +18,11 @@
 }
 
 .word-div {
-  border-bottom: black solid .25px;
+  border-bottom: black solid 0.25px;
   display: grid;
   grid-template-columns: 50% 50%;
+}
+
+.bubble-chart {
+  margin: 300px 300px 300px 300px;
 }
