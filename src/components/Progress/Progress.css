@@ -1,0 +1,24 @@
+.progress-section {
+  border: solid black 1px;
+  width: 50%;
+  margin: auto;
+}
+
+.lang-prog-div {
+  border: solid black 1px;
+  padding: 10px;
+}
+
+.lang-prog-div h2 {
+  margin: 0;
+}
+
+.word-prog-div {
+  border: solid black 1px;
+}
+
+.word-div {
+  border-bottom: black solid .25px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}

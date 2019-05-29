@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import LanguageApiService from '../../services/language-api-service';
-import Header from '../../components/Header/Header';
 import Progress from '../../components/Progress/Progress';
 
 
