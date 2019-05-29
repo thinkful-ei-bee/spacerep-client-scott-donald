@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LanguageApiService from '../../services/language-api-service';
 import Progress from '../../components/Progress/Progress';
+import { Link } from 'react-router-dom';
 
 
 class DashboardRoute extends Component {
@@ -25,6 +26,7 @@ class DashboardRoute extends Component {
     return (
       <>
         <Progress language={this.state.language} words={this.state.words}/>
+        <Link to='/Learn' className='start-learning-link'>Start Learning</Link>
       </>
     );
   }

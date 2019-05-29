@@ -7,7 +7,7 @@ class Progress extends Component {
     return words.map(word => 
         <div className='word-div' key={word.id}>
           <span>{word.original}</span> 
-          <span>{word.correct_count}/{word.correct_count/word.incorrect_count || 0}</span>
+          <span>{word.correct_count}/{word.correct_count + word.incorrect_count || 0}</span>
         </div>
     )
   }
