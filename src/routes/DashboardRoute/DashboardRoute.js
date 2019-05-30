@@ -19,7 +19,7 @@ class DashboardRoute extends Component {
           words: lang.words
         })
       )
-      .then(() => console.log('state:', this.state))
+      // .then(() => console.log('state:', this.state))
   }
   
   render() {
