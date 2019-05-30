@@ -19,19 +19,19 @@ class Header extends Component {
     let translation = "";
 
     if (now >= 0 && now < 6) {
-      greeting = `Hey there ${username}, you полуночник`;
+      greeting = `Hey there ${username}, you кукумявка`;
       translation = "(nightowl)";
     } else if (now >= 6 && now < 12) {
-      greeting = `доброе утро, ${username}`;
+      greeting = `добро утро, ${username}`;
       translation = "(good morning)";
     } else if (now >= 12 && now < 18) {
-      greeting = `доброе утро, ${username}`;
+      greeting = `добър ден, ${username}`;
       translation = "(good afternoon)";
     } else if (now >= 18 && now < 24) {
-      greeting = `доброе утро, ${username}`;
+      greeting = `добър вечер, ${username}`;
       translation = "(good evening)";
     } else {
-      greeting = `Привет, ${username}`;
+      greeting = `Здравейте, ${username}`;
       translation = "(hello)";
     }
 

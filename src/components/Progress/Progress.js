@@ -183,7 +183,7 @@ class Progress extends Component {
             content={this.renderTooltip}
           />
           <Scatter data={data02} fill="#8884d8">
-            {data01.map((entry, index) => {
+            {data02.map((entry, index) => {
               let tempColor = "#00C49F";
               if (entry.value < 0) {
                 tempColor = "#FF8042";
