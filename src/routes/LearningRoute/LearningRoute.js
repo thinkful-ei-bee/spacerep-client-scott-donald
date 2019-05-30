@@ -32,10 +32,11 @@ class LearningRoute extends Component {
 
   }
 
-  componentDidMount() {
+  getHead() {
     LanguageApiService.getHead()
       .then(res => 
         this.setState({
+          asking: true,
           nextWord: res.nextWord,
           totalScore: res.totalScore,
           wordCorrectCount: res.wordCorrectCount,
@@ -43,6 +44,21 @@ class LearningRoute extends Component {
         })
       )
       .then(() => console.log('state:', this.state))
+  }
+
+  componentDidMount() {
+    // LanguageApiService.getHead()
+    //   .then(res => 
+    //     this.setState({
+    //       asking: true,
+    //       nextWord: res.nextWord,
+    //       totalScore: res.totalScore,
+    //       wordCorrectCount: res.wordCorrectCount,
+    //       wordIncorrectCount: res.wordIncorrectCount 
+    //     })
+    //   )
+    //   .then(() => console.log('state:', this.state))
+    this.getHead();
   }
 
   handleGuess(guess) {
@@ -71,11 +87,17 @@ class LearningRoute extends Component {
       .then(() => console.log('response:', this.state))
   }
 
+  handleNext(e) {
+    e.preventDefault()
+    console.log('next');
+    this.getHead();
+  }
+
   renderQorA() {
     if (this.state.asking) {
       return <QuestionForm handleGuess = {this.handleGuess.bind(this)}/>
     } else {
-      return <Answer response={this.state.response}/>
+      return <Answer response={this.state.response} handleNext={this.handleNext.bind(this)}/>
     }
   }
   

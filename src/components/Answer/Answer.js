@@ -11,6 +11,11 @@ class Answer extends Component {
     }
   }
 
+  // handleNext(e) {
+  //   e.preventDefault()
+  //   console.log('next');
+  //   this.props.history.push('/');
+  // }
 
 
   render() {
@@ -21,6 +26,8 @@ class Answer extends Component {
       <section className='answer-section'> 
         {this.renderFeedback()}
         <p>{response.answer}</p>
+
+        <button onClick={e => this.props.handleNext(e)}>Next</button>
       </section>
     )
   }
