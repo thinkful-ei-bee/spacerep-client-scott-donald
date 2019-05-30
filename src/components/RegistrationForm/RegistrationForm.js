@@ -75,11 +75,7 @@ class RegistrationForm extends Component {
         </div>
         <footer>
           <Button type="submit">SIGN UP</Button> <br />
-          <Link
-            to="/login"
-            className="login-redirect"
-            style={{ color: "#84dc00" }}
-          >
+          <Link to="/login" className="login-redirect">
             Already have an account?
           </Link>
         </footer>

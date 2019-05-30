@@ -6,47 +6,49 @@ import {
   YAxis,
   ZAxis,
   Tooltip,
-  Legend
+  Cell,
+  Legend,
+  ResponsiveContainer
 } from "recharts";
 import "./Progress.css";
 
 const data01 = [
-  { hour: "А а", index: 1, value: 17, correct: 17, incorrect: 17 },
-  { hour: "Б б", index: 1, value: 18, correct: 18, incorrect: 18 },
-  { hour: "В в", index: 1, value: 15, correct: 15, incorrect: 15 },
-  { hour: "Г г", index: 1, value: 12, correct: 12, incorrect: 12 },
-  { hour: "Д д", index: 1, value: 20, correct: 20, incorrect: 20 },
-  { hour: "Е е", index: 1, value: 30, correct: 30, incorrect: 30 },
-  { hour: "Ё ё", index: 1, value: 40, correct: 40, incorrect: 40 },
-  { hour: "Ж ж", index: 1, value: 20, correct: 20, incorrect: 20 },
-  { hour: "З з", index: 1, value: 10, correct: 10, incorrect: 10 },
-  { hour: "И и", index: 1, value: 15, correct: 15, incorrect: 15 },
-  { hour: "Й й", index: 1, value: 16, correct: 16, incorrect: 16 },
-  { hour: "К к", index: 1, value: 17, correct: 17, incorrect: 17 },
-  { hour: "Л л", index: 1, value: 18, correct: 18, incorrect: 18 },
-  { hour: "М м", index: 1, value: 14, correct: 14, incorrect: 14 },
-  { hour: "Н н", index: 1, value: 16, correct: 16, incorrect: 16 },
-  { hour: "О о", index: 1, value: 14, correct: 14, incorrect: 14 },
-  { hour: "П п", index: 1, value: 15, correct: 15, incorrect: 15 }
+  { hour: "А а", index: 1, value: 7, correct: 10, incorrect: 3 },
+  { hour: "Б б", index: 1, value: 8, correct: 10, incorrect: 2 },
+  { hour: "В в", index: 1, value: 5, correct: 7, incorrect: 2 },
+  { hour: "Г г", index: 1, value: 2, correct: 12, incorrect: 10 },
+  { hour: "Д д", index: 1, value: -1, correct: 10, incorrect: 11 },
+  { hour: "Е е", index: 1, value: 8, correct: 9, incorrect: 1 },
+  { hour: "Ё ё", index: 1, value: 4, correct: 5, incorrect: 1 },
+  { hour: "Ж ж", index: 1, value: -2, correct: 5, incorrect: 7 },
+  { hour: "З з", index: 1, value: 4, correct: 10, incorrect: 6 },
+  { hour: "И и", index: 1, value: 5, correct: 15, incorrect: 10 },
+  { hour: "Й й", index: 1, value: 6, correct: 6, incorrect: 0 },
+  { hour: "К к", index: 1, value: 7, correct: 8, incorrect: 1 },
+  { hour: "Л л", index: 1, value: 8, correct: 10, incorrect: 2 },
+  { hour: "М м", index: 1, value: 4, correct: 7, incorrect: 3 },
+  { hour: "Н н", index: 1, value: 6, correct: 8, incorrect: 2 },
+  { hour: "О о", index: 1, value: -4, correct: 3, incorrect: 7 },
+  { hour: "П п", index: 1, value: 5, correct: 7, incorrect: 2 }
 ];
 
 const data02 = [
-  { hour: "Р р", index: 1, value: 16, correct: 16, incorrect: 16 },
-  { hour: "С с", index: 1, value: 18, correct: 18, incorrect: 18 },
-  { hour: "Т т", index: 1, value: 15, correct: 15, incorrect: 15 },
-  { hour: "У у", index: 1, value: 12, correct: 12, incorrect: 12 },
-  { hour: "Ф ф", index: 1, value: 20, correct: 20, incorrect: 20 },
-  { hour: "Х х", index: 1, value: 30, correct: 30, incorrect: 30 },
-  { hour: "Ц ц", index: 1, value: 10, correct: 10, incorrect: 10 },
-  { hour: "Ч ч", index: 1, value: 20, correct: 20, incorrect: 20 },
-  { hour: "Ш ш", index: 1, value: 10, correct: 10, incorrect: 10 },
-  { hour: "Щ щ", index: 1, value: 15, correct: 15, incorrect: 15 },
-  { hour: "Ъ ъ", index: 1, value: 16, correct: 16, incorrect: 16 },
-  { hour: "Ы ы", index: 1, value: 16, correct: 16, incorrect: 16 },
-  { hour: "Ь ь", index: 1, value: 18, correct: 18, incorrect: 18 },
-  { hour: "Э э", index: 1, value: 14, correct: 14, incorrect: 14 },
-  { hour: "Ю ю", index: 1, value: 16, correct: 16, incorrect: 16 },
-  { hour: "Я я", index: 1, value: 14, correct: 14, incorrect: 14 }
+  { hour: "Р р", index: 1, value: 6, correct: 16, incorrect: 10 },
+  { hour: "С с", index: 1, value: 8, correct: 12, incorrect: 4 },
+  { hour: "Т т", index: 1, value: 5, correct: 9, incorrect: 4 },
+  { hour: "У у", index: 1, value: 2, correct: 9, incorrect: 7 },
+  { hour: "Ф ф", index: 1, value: -2, correct: 4, incorrect: 6 },
+  { hour: "Х х", index: 1, value: -3, correct: 3, incorrect: 6 },
+  { hour: "Ц ц", index: 1, value: 1, correct: 10, incorrect: 9 },
+  { hour: "Ч ч", index: 1, value: 2, corvrect: 11, incorrect: 9 },
+  { hour: "Ш ш", index: 1, value: 1, correct: 8, incorrect: 7 },
+  { hour: "Щ щ", index: 1, value: 5, correct: 9, incorrect: 4 },
+  { hour: "Ъ ъ", index: 1, value: 6, correct: 7, incorrect: 1 },
+  { hour: "Ы ы", index: 1, value: -2, correct: 8, incorrect: 10 },
+  { hour: "Ь ь", index: 1, value: 8, correct: 11, incorrect: 3 },
+  { hour: "Э э", index: 1, value: 4, correct: 5, incorrect: 1 },
+  { hour: "Ю ю", index: 1, value: 6, correct: 9, incorrect: 3 },
+  { hour: "Я я", index: 1, value: 4, correct: 12, incorrect: 8 }
 ];
 
 const parseDomain = () => [
@@ -86,7 +88,7 @@ class Progress extends Component {
         >
           <p>{data.hour}</p>
           <p>
-            <span>{data.correct} " correct,</span>
+            <span>{data.correct} correct,</span>
             {data.incorrect} incorrect
           </p>
         </div>
@@ -102,7 +104,7 @@ class Progress extends Component {
     const range = [16, 225];
 
     return (
-      <div>
+      <div className="viz">
         <ScatterChart
           width={800}
           height={60}
@@ -110,7 +112,7 @@ class Progress extends Component {
             top: 10,
             right: 0,
             bottom: 0,
-            left: 0
+            left: -80
           }}
         >
           <XAxis
@@ -136,7 +138,15 @@ class Progress extends Component {
             wrapperStyle={{ zIndex: 100 }}
             content={this.renderTooltip}
           />
-          <Scatter data={data01} fill="#8884d8" />
+          <Scatter data={data01} fill="#8884d8">
+            {data01.map((entry, index) => {
+              let tempColor = "#00C49F";
+              if (entry.value < 0) {
+                tempColor = "#FF8042";
+              }
+              return <Cell key={`cell-${index}`} fill={tempColor} />;
+            })}
+          </Scatter>
         </ScatterChart>
 
         <ScatterChart
@@ -146,7 +156,7 @@ class Progress extends Component {
             top: 10,
             right: 0,
             bottom: 0,
-            left: 0
+            left: -80
           }}
         >
           <XAxis
@@ -172,7 +182,15 @@ class Progress extends Component {
             wrapperStyle={{ zIndex: 100 }}
             content={this.renderTooltip}
           />
-          <Scatter data={data02} fill="#8884d8" />
+          <Scatter data={data02} fill="#8884d8">
+            {data01.map((entry, index) => {
+              let tempColor = "#00C49F";
+              if (entry.value < 0) {
+                tempColor = "#FF8042";
+              }
+              return <Cell key={`cell-${index}`} fill={tempColor} />;
+            })}
+          </Scatter>
         </ScatterChart>
       </div>
     );

@@ -6,8 +6,42 @@ h2 {
   text-align: center;
 }
 
-p {
+.greeting {
   font-size: 15px;
+  color: #84dc00;
   text-align: center;
-  margin: 0px 100px 0px 100px;
+}
+
+.translation {
+  font-size: 12px;
+  position: relative;
+  top: -10px;
+}
+
+h5 {
+  text-align: right;
+  margin: 0 10px 0 0;
+}
+
+h3 {
+  color: #1cb0f6;
+  font-size: 15px;
+  color: #84dc00;
+  text-align: center;
+}
+
+.second-row {
+  position: relative;
+  top: 50px;
+}
+
+.start-button {
+  position: relative;
+  top: 30px;
+}
+
+.bubbleChart {
+  position: relative;
+  top: 30px;
+  padding-bottom: 80px;
 }

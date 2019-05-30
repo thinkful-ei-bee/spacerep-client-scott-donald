@@ -17,10 +17,10 @@ class RegistrationRoute extends Component {
     return (
       <section>
         <p>
-          Practice learning a language with the spaced reptition revision
-          technique.
+          Practice reading Кириллица (Cyrillic) with the spaced reptition
+          revision technique.
         </p>
-        <h2>Sign up</h2>
+        <h2 className="widget">Sign up</h2>
         <RegistrationForm
           onRegistrationSuccess={this.handleRegistrationSuccess}
         />

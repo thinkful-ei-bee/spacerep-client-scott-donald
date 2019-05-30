@@ -16,33 +16,38 @@ class Header extends Component {
     let username = this.context.user.name;
     now = now.getHours();
     let greeting = "";
+    let translation = "";
 
-    if (now > 0 && now < 6) {
-      greeting = `Hey there ${username}, you полуночник (nightowl)`;
-    } else if (now > 6 && now < 12) {
-      greeting = `доброе утро, ${username} (good morning)`;
-    } else if (now > 12 && now < 18) {
-      greeting = `доброе утро ${username}(good afternoon)`;
-    } else if (now > 18 && now < 24) {
-      greeting = `доброе утро ${username} (good evening)`;
+    if (now >= 0 && now < 6) {
+      greeting = `Hey there ${username}, you полуночник`;
+      translation = "(nightowl)";
+    } else if (now >= 6 && now < 12) {
+      greeting = `доброе утро, ${username}`;
+      translation = "(good morning)";
+    } else if (now >= 12 && now < 18) {
+      greeting = `доброе утро, ${username}`;
+      translation = "(good afternoon)";
+    } else if (now >= 18 && now < 24) {
+      greeting = `доброе утро, ${username}`;
+      translation = "(good evening)";
     } else {
-      greeting = `Привет ${username} (hello)`;
+      greeting = `Привет, ${username}`;
+      translation = "(hello)";
     }
 
     return (
       <div>
         <nav>
-          {greeting}
-          <button>
-            <Link
-              onClick={this.handleLogoutClick}
-              to="/login"
-              style={{ textDecoration: "none", color: "#FFFFFF" }}
-            >
-              Logout
-            </Link>
-          </button>
+          <Link
+            onClick={this.handleLogoutClick}
+            to="/login"
+            style={{ color: "#ffc006", fontSize: 10 }}
+          >
+            <h5> Logout </h5>
+          </Link>
         </nav>
+        <h3 className="greeting"> {greeting} </h3>
+        <p className="translation"> {translation}</p>
       </div>
     );
   }

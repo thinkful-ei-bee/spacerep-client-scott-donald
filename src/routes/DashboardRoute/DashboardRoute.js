@@ -3,6 +3,7 @@ import LanguageApiService from "../../services/language-api-service";
 import Progress from "../../components/Progress/Progress";
 import { Link } from "react-router-dom";
 import Gauge from "./gauge";
+import "./DashboardRoute.css";
 
 class DashboardRoute extends Component {
   state = {
@@ -23,19 +24,32 @@ class DashboardRoute extends Component {
 
   render() {
     return (
-      <>
-        <Progress language={this.state.language} words={this.state.words} />
-        <Gauge />
-        <button>
+      <div>
+        <div className="first-row">
+          <img
+            src="https://i.imgur.com/OV2l6KA.png"
+            alt=""
+            height="208px"
+            width="167px"
+            className="langImg"
+          />
+          <Gauge />
+        </div>
+        <button className="start-button">
           <Link
             to="/Learn"
-            className="start-learning-link"
             style={{ textDecoration: "none", color: "#FFFFFF" }}
           >
-            Start Learning
+            <h2> Start Learning! </h2>
           </Link>
         </button>
-      </>
+        <div className="second-row">
+          <h3>Alphabet-specific Scores</h3>
+          <div className="bubbleChart">
+            <Progress language={this.state.language} words={this.state.words} />
+          </div>
+        </div>
+      </div>
     );
   }
 }
