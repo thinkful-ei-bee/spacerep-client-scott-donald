@@ -1,0 +1,7 @@
+Main color: Blue (#1cb0f6)
+Secondary color: Green (#84dc00)
+Tertiary Color: Orange (#ffc006)
+Neutral black: (#c7c7c7)
+
+Correct green: #00C49F
+Incorrect red: #FF8042

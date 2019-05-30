@@ -1,0 +1,19 @@
+.viz {
+  display: inline-block;
+}
+
+.langImg {
+  position: relative;
+  top: 0px;
+}
+
+.first-row {
+  margin-left: 100px;
+  margin-right: auto;
+  text-align: center;
+}
+
+progress {
+  position: relative;
+  top: -10px;
+}
