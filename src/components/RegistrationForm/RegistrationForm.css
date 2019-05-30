@@ -4,6 +4,7 @@ div {
 
 .login-redirect {
   font-size: 10px;
+  color: #ffc006;
 }
 
 label {
@@ -25,4 +26,8 @@ button {
   font-weight: bold;
   margin: 4px 2px;
   border-radius: 10%;
+}
+
+.widget {
+  color: #c7c7c7;
 }

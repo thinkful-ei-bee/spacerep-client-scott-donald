@@ -12,14 +12,42 @@ class Header extends Component {
   };
 
   renderLogoutLink() {
+    let now = new Date();
+    let username = this.context.user.name;
+    now = now.getHours();
+    let greeting = "";
+    let translation = "";
+
+    if (now >= 0 && now < 6) {
+      greeting = `Hey there ${username}, you кукумявка`;
+      translation = "(nightowl)";
+    } else if (now >= 6 && now < 12) {
+      greeting = `добро утро, ${username}`;
+      translation = "(good morning)";
+    } else if (now >= 12 && now < 18) {
+      greeting = `добър ден, ${username}`;
+      translation = "(good afternoon)";
+    } else if (now >= 18 && now < 24) {
+      greeting = `добър вечер, ${username}`;
+      translation = "(good evening)";
+    } else {
+      greeting = `Здравейте, ${username}`;
+      translation = "(hello)";
+    }
+
     return (
       <div>
-        <span>{this.context.user.name}</span>
         <nav>
-          <Link onClick={this.handleLogoutClick} to="/login">
-            Logout
+          <Link
+            onClick={this.handleLogoutClick}
+            to="/login"
+            style={{ color: "#ffc006", fontSize: 10 }}
+          >
+            <h5> Logout </h5>
           </Link>
         </nav>
+        <h3 className="greeting"> {greeting} </h3>
+        <p className="translation"> {translation}</p>
       </div>
     );
   }
