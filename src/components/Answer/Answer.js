@@ -25,7 +25,9 @@ class Answer extends Component {
     return (
       <section className='answer-section'> 
         {this.renderFeedback()}
-        <p>{response.answer}</p>
+        <p>Correct Translation: {response.answer.correct}</p>
+        <p>Letter Pronunciation: {response.answer.example}</p>
+        <p>Letter Name: {response.answer.name}</p>
 
         <button onClick={e => this.props.handleNext(e)}>Next</button>
       </section>
