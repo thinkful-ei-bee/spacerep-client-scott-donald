@@ -6,9 +6,7 @@ import {
   YAxis,
   ZAxis,
   Tooltip,
-  Cell,
-  Legend,
-  ResponsiveContainer
+  Cell
 } from "recharts";
 import "./Progress.css";
 
@@ -49,7 +47,7 @@ class Progress extends Component {
   };
 
   render() {
-    const { language, kAlphabet } = this.props;
+    const { kAlphabet } = this.props;
     const range = [16, 225];
 
     let d01 = kAlphabet;

@@ -7,10 +7,6 @@ import "./DashboardRoute.css";
 const uuidv4 = require("uuid/v4");
 
 class DashboardRoute extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   state = {
     language: {},
     words: []
@@ -31,6 +27,7 @@ class DashboardRoute extends Component {
     this.renderWords(this.state.words).map(word => {
       totalCorrect = totalCorrect + word.correct;
       totalIncorrect = totalIncorrect + word.incorrect;
+      return "";
     });
     return [totalCorrect, totalIncorrect];
   }

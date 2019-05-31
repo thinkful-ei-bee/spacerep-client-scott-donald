@@ -1,9 +1,6 @@
 import React, { PureComponent } from "react";
 import { PieChart, Pie, Sector, Cell } from "recharts";
 
-let correct = 0;
-let incorrect = 0;
-
 const COLORS = ["#00C49F", "#FF8042"];
 
 const renderActiveShape = props => {
