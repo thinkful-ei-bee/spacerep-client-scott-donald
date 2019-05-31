@@ -1,9 +1,11 @@
 import React, { PureComponent } from "react";
 import { PieChart, Pie, Sector, Cell } from "recharts";
 
+let correct = 0;
+let incorrect = 0;
 const data = [
-  { name: "корректный", value: 10 },
-  { name: "некорректный", value: 2 }
+  { name: "корректный", value: correct },
+  { name: "некорректный", value: incorrect }
 ];
 const COLORS = ["#00C49F", "#FF8042"];
 
@@ -93,6 +95,8 @@ export default class Example extends PureComponent {
   };
 
   render() {
+    correct = this.state.correct;
+    incorrect = this.state.incorrect;
     return (
       <PieChart width={400} height={220} className="viz">
         <Pie

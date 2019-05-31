@@ -8,7 +8,9 @@ import "./DashboardRoute.css";
 class DashboardRoute extends Component {
   state = {
     language: {},
-    words: []
+    words: [],
+    correct: 0,
+    incorrect: 0
   };
 
   componentDidMount() {
@@ -19,7 +21,14 @@ class DashboardRoute extends Component {
           words: lang.words
         })
       )
-      .then(() => console.log("state:", this.state));
+      .then(() => console.log("")); // removed console log; inner text was ("state:", this.state)
+  }
+
+  handleUpdateScore(corScore, incorScore) {
+    this.setState({
+      correct: corScore,
+      incorrect: incorScore
+    });
   }
 
   render() {
@@ -33,7 +42,11 @@ class DashboardRoute extends Component {
             width="167px"
             className="langImg"
           />
-          <Gauge />
+          <Gauge
+            updateScore={this.handleUpdateScore}
+            correct={this.state.correct}
+            incorrect={this.state.incorrect}
+          />
         </div>
         <button className="start-button">
           <Link

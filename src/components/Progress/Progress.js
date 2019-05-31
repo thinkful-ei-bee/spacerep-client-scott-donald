@@ -11,64 +11,30 @@ import {
   ResponsiveContainer
 } from "recharts";
 import "./Progress.css";
+const uuidv4 = require("uuid/v4");
 
-const data01 = [
-  { hour: "А а", index: 1, value: 7, correct: 10, incorrect: 3 },
-  { hour: "Б б", index: 1, value: 8, correct: 10, incorrect: 2 },
-  { hour: "В в", index: 1, value: 5, correct: 7, incorrect: 2 },
-  { hour: "Г г", index: 1, value: 2, correct: 12, incorrect: 10 },
-  { hour: "Д д", index: 1, value: -1, correct: 10, incorrect: 11 },
-  { hour: "Е е", index: 1, value: 8, correct: 9, incorrect: 1 },
-  { hour: "Ё ё", index: 1, value: 4, correct: 5, incorrect: 1 },
-  { hour: "Ж ж", index: 1, value: -2, correct: 5, incorrect: 7 },
-  { hour: "З з", index: 1, value: 4, correct: 10, incorrect: 6 },
-  { hour: "И и", index: 1, value: 5, correct: 15, incorrect: 10 },
-  { hour: "Й й", index: 1, value: 6, correct: 6, incorrect: 0 },
-  { hour: "К к", index: 1, value: 7, correct: 8, incorrect: 1 },
-  { hour: "Л л", index: 1, value: 8, correct: 10, incorrect: 2 },
-  { hour: "М м", index: 1, value: 4, correct: 7, incorrect: 3 },
-  { hour: "Н н", index: 1, value: 6, correct: 8, incorrect: 2 },
-  { hour: "О о", index: 1, value: -4, correct: 3, incorrect: 7 },
-  { hour: "П п", index: 1, value: 5, correct: 7, incorrect: 2 }
-];
-
-const data02 = [
-  { hour: "Р р", index: 1, value: 6, correct: 16, incorrect: 10 },
-  { hour: "С с", index: 1, value: 8, correct: 12, incorrect: 4 },
-  { hour: "Т т", index: 1, value: 5, correct: 9, incorrect: 4 },
-  { hour: "У у", index: 1, value: 2, correct: 9, incorrect: 7 },
-  { hour: "Ф ф", index: 1, value: -2, correct: 4, incorrect: 6 },
-  { hour: "Х х", index: 1, value: -3, correct: 3, incorrect: 6 },
-  { hour: "Ц ц", index: 1, value: 1, correct: 10, incorrect: 9 },
-  { hour: "Ч ч", index: 1, value: 2, corvrect: 11, incorrect: 9 },
-  { hour: "Ш ш", index: 1, value: 1, correct: 8, incorrect: 7 },
-  { hour: "Щ щ", index: 1, value: 5, correct: 9, incorrect: 4 },
-  { hour: "Ъ ъ", index: 1, value: 6, correct: 7, incorrect: 1 },
-  { hour: "Ы ы", index: 1, value: -2, correct: 8, incorrect: 10 },
-  { hour: "Ь ь", index: 1, value: 8, correct: 11, incorrect: 3 },
-  { hour: "Э э", index: 1, value: 4, correct: 5, incorrect: 1 },
-  { hour: "Ю ю", index: 1, value: 6, correct: 9, incorrect: 3 },
-  { hour: "Я я", index: 1, value: 4, correct: 12, incorrect: 8 }
-];
-
-const parseDomain = () => [
+const parseDomain = (d01, d02) => [
   0,
   Math.max(
-    Math.max.apply(null, data01.map(entry => entry.value)),
-    Math.max.apply(null, data02.map(entry => entry.value))
+    Math.max.apply(null, d01.map(entry => entry.value)),
+    Math.max.apply(null, d02.map(entry => entry.value))
   )
 ];
 
 class Progress extends Component {
   renderWords = words => {
-    return words.map(word => (
-      <div className="word-div" key={word.id}>
-        <span>{word.original}</span>
-        <span>
-          {word.correct_count}/{word.correct_count + word.incorrect_count || 0}
-        </span>
-      </div>
-    ));
+    let kAlphabet = [];
+    words.map(word =>
+      kAlphabet.push({
+        hour: word.original,
+        key: uuidv4(),
+        index: 1,
+        value: word.correct_count - word.incorrect_count,
+        correct: word.correct_count,
+        incorrect: word.incorrect_count
+      })
+    );
+    return kAlphabet;
   };
 
   renderTooltip = props => {
@@ -100,8 +66,21 @@ class Progress extends Component {
 
   render() {
     const { language, words } = this.props;
-    const domain = parseDomain();
     const range = [16, 225];
+
+    let kAlphabet = this.renderWords(words);
+
+    let d01 = kAlphabet;
+    let d02 = d01.splice(17);
+    const domain = parseDomain(d01, d02);
+
+    let totalCorrect = 0;
+    let totalIncorrect = 0;
+
+    kAlphabet.map(word => {
+      totalCorrect = totalCorrect + word.correct;
+      totalIncorrect = totalIncorrect + word.incorrect;
+    });
 
     return (
       <div className="viz">
@@ -138,8 +117,8 @@ class Progress extends Component {
             wrapperStyle={{ zIndex: 100 }}
             content={this.renderTooltip}
           />
-          <Scatter data={data01} fill="#8884d8">
-            {data01.map((entry, index) => {
+          <Scatter data={d01} fill="#8884d8">
+            {d01.map((entry, index) => {
               let tempColor = "#00C49F";
               if (entry.value < 0) {
                 tempColor = "#FF8042";
@@ -182,8 +161,8 @@ class Progress extends Component {
             wrapperStyle={{ zIndex: 100 }}
             content={this.renderTooltip}
           />
-          <Scatter data={data02} fill="#8884d8">
-            {data02.map((entry, index) => {
+          <Scatter data={d02} fill="#8884d8">
+            {d02.map((entry, index) => {
               let tempColor = "#00C49F";
               if (entry.value < 0) {
                 tempColor = "#FF8042";
@@ -207,3 +186,42 @@ export default Progress;
 
 //   <div className="word-prog-div">{this.renderWords(words)}</div>
 // </section>
+
+// const data01 = [
+//   { hour: "А а", index: 1, value: 7, correct: 10, incorrect: 3 },
+//   { hour: "Б б", index: 1, value: 8, correct: 10, incorrect: 2 },
+//   { hour: "В в", index: 1, value: 5, correct: 7, incorrect: 2 },
+//   { hour: "Г г", index: 1, value: 2, correct: 12, incorrect: 10 },
+//   { hour: "Д д", index: 1, value: -1, correct: 10, incorrect: 11 },
+//   { hour: "Е е", index: 1, value: 8, correct: 9, incorrect: 1 },
+//   { hour: "Ё ё", index: 1, value: 4, correct: 5, incorrect: 1 },
+//   { hour: "Ж ж", index: 1, value: -2, correct: 5, incorrect: 7 },
+//   { hour: "З з", index: 1, value: 4, correct: 10, incorrect: 6 },
+//   { hour: "И и", index: 1, value: 5, correct: 15, incorrect: 10 },
+//   { hour: "Й й", index: 1, value: 6, correct: 6, incorrect: 0 },
+//   { hour: "К к", index: 1, value: 7, correct: 8, incorrect: 1 },
+//   { hour: "Л л", index: 1, value: 8, correct: 10, incorrect: 2 },
+//   { hour: "М м", index: 1, value: 4, correct: 7, incorrect: 3 },
+//   { hour: "Н н", index: 1, value: 6, correct: 8, incorrect: 2 },
+//   { hour: "О о", index: 1, value: -4, correct: 3, incorrect: 7 },
+//   { hour: "П п", index: 1, value: 5, correct: 7, incorrect: 2 }
+// ];
+
+// const data02 = [
+//   { hour: "Р р", index: 1, value: 6, correct: 16, incorrect: 10 },
+//   { hour: "С с", index: 1, value: 8, correct: 12, incorrect: 4 },
+//   { hour: "Т т", index: 1, value: 5, correct: 9, incorrect: 4 },
+//   { hour: "У у", index: 1, value: 2, correct: 9, incorrect: 7 },
+//   { hour: "Ф ф", index: 1, value: -2, correct: 4, incorrect: 6 },
+//   { hour: "Х х", index: 1, value: -3, correct: 3, incorrect: 6 },
+//   { hour: "Ц ц", index: 1, value: 1, correct: 10, incorrect: 9 },
+//   { hour: "Ч ч", index: 1, value: 2, corvrect: 11, incorrect: 9 },
+//   { hour: "Ш ш", index: 1, value: 1, correct: 8, incorrect: 7 },
+//   { hour: "Щ щ", index: 1, value: 5, correct: 9, incorrect: 4 },
+//   { hour: "Ъ ъ", index: 1, value: 6, correct: 7, incorrect: 1 },
+//   { hour: "Ы ы", index: 1, value: -2, correct: 8, incorrect: 10 },
+//   { hour: "Ь ь", index: 1, value: 8, correct: 11, incorrect: 3 },
+//   { hour: "Э э", index: 1, value: 4, correct: 5, incorrect: 1 },
+//   { hour: "Ю ю", index: 1, value: 6, correct: 9, incorrect: 3 },
+//   { hour: "Я я", index: 1, value: 4, correct: 12, incorrect: 8 }
+// ];
