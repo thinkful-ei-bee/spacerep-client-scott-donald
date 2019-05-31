@@ -4,16 +4,14 @@
 
 .langImg {
   position: relative;
-  top: 0px;
-}
-
-.first-row {
-  margin-left: 100px;
-  margin-right: auto;
-  text-align: center;
+  bottom: 35px;
 }
 
 progress {
   position: relative;
   top: -10px;
+}
+
+.piechart {
+  padding-left: 50px;
 }

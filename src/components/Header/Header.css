@@ -30,14 +30,27 @@ h3 {
   text-align: center;
 }
 
-.second-row {
+.first-row {
   position: relative;
-  top: 50px;
+  top: -60px;
+  margin-left: 100px;
+  margin-right: auto;
+  text-align: center;
 }
 
 .start-button {
   position: relative;
-  top: 30px;
+  top: -90px;
+}
+
+.second-row {
+  position: relative;
+  top: -90px;
+}
+
+.second-row-title {
+  position: relative;
+  top: 15px;
 }
 
 .bubbleChart {

@@ -103,13 +103,13 @@ export default class Example extends PureComponent {
     ];
 
     return (
-      <PieChart width={400} height={220} className="viz">
+      <PieChart width={450} height={320} className="viz piechart">
         <Pie
           activeIndex={this.state.activeIndex}
           activeShape={renderActiveShape}
           data={data}
-          cx={200}
-          cy={90}
+          cx={225}
+          cy={150}
           innerRadius={60}
           outerRadius={80}
           fill="#8884d8"

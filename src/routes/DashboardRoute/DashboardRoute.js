@@ -72,7 +72,7 @@ class DashboardRoute extends Component {
           </Link>
         </button>
         <div className="second-row">
-          <h3>Alphabet-specific Scores</h3>
+          <h3 className="second-row-title">Alphabet-specific Scores</h3>
           <div className="bubbleChart">
             <Progress
               language={this.state.language}
