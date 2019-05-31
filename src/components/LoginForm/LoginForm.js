@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { Input, Label } from "../Form/Form";
 import AuthApiService from "../../services/auth-api-service";
 import UserContext from "../../contexts/UserContext";
@@ -45,7 +46,7 @@ class LoginForm extends Component {
     return (
       <form className="LoginForm" onSubmit={this.handleSubmit}>
         <div role="alert">{error && <p>{error}</p>}</div>
-        <div>
+        <div className="login-input">
           <Label htmlFor="login-username-input">Username</Label>
           <Input
             ref={this.firstInput}
@@ -54,7 +55,7 @@ class LoginForm extends Component {
             required
           />
         </div>
-        <div>
+        <div className="login-input">
           <Label htmlFor="login-password-input">Password</Label>
           <Input
             id="login-password-input"
@@ -64,6 +65,9 @@ class LoginForm extends Component {
           />
         </div>
         <Button type="submit">LOGIN</Button>
+        <Link to="/" className="login-redirect">
+          Need to signup?
+        </Link>
       </form>
     );
   }
