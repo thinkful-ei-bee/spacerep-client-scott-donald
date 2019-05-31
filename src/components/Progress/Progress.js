@@ -11,7 +11,6 @@ import {
   ResponsiveContainer
 } from "recharts";
 import "./Progress.css";
-const uuidv4 = require("uuid/v4");
 
 const parseDomain = (d01, d02) => [
   0,
@@ -22,21 +21,6 @@ const parseDomain = (d01, d02) => [
 ];
 
 class Progress extends Component {
-  renderWords = words => {
-    let kAlphabet = [];
-    words.map(word =>
-      kAlphabet.push({
-        hour: word.original,
-        key: uuidv4(),
-        index: 1,
-        value: word.correct_count - word.incorrect_count,
-        correct: word.correct_count,
-        incorrect: word.incorrect_count
-      })
-    );
-    return kAlphabet;
-  };
-
   renderTooltip = props => {
     const { active, payload } = props;
 
@@ -65,22 +49,12 @@ class Progress extends Component {
   };
 
   render() {
-    const { language, words } = this.props;
+    const { language, kAlphabet } = this.props;
     const range = [16, 225];
-
-    let kAlphabet = this.renderWords(words);
 
     let d01 = kAlphabet;
     let d02 = d01.splice(17);
     const domain = parseDomain(d01, d02);
-
-    let totalCorrect = 0;
-    let totalIncorrect = 0;
-
-    kAlphabet.map(word => {
-      totalCorrect = totalCorrect + word.correct;
-      totalIncorrect = totalIncorrect + word.incorrect;
-    });
 
     return (
       <div className="viz">

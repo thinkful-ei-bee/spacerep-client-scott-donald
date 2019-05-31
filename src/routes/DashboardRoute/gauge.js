@@ -3,10 +3,7 @@ import { PieChart, Pie, Sector, Cell } from "recharts";
 
 let correct = 0;
 let incorrect = 0;
-const data = [
-  { name: "корректный", value: correct },
-  { name: "некорректный", value: incorrect }
-];
+
 const COLORS = ["#00C49F", "#FF8042"];
 
 const renderActiveShape = props => {
@@ -33,6 +30,11 @@ const renderActiveShape = props => {
   const ex = mx + (cos >= 0 ? 1 : -1) * 22;
   const ey = my;
   const textAnchor = cos >= 0 ? "start" : "end";
+
+  // let data = [
+  //   { name: "корректный", value: 0 },
+  //   { name: "некорректный", value: 0 }
+  // ];
 
   return (
     <g>
@@ -95,8 +97,11 @@ export default class Example extends PureComponent {
   };
 
   render() {
-    correct = this.state.correct;
-    incorrect = this.state.incorrect;
+    let data = [
+      { name: "корректный", value: this.props.score[0] },
+      { name: "некорректный", value: this.props.score[1] }
+    ];
+
     return (
       <PieChart width={400} height={220} className="viz">
         <Pie

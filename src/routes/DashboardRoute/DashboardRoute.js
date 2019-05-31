@@ -4,31 +4,50 @@ import Progress from "../../components/Progress/Progress";
 import { Link } from "react-router-dom";
 import Gauge from "./gauge";
 import "./DashboardRoute.css";
+const uuidv4 = require("uuid/v4");
 
 class DashboardRoute extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   state = {
     language: {},
-    words: [],
-    correct: 0,
-    incorrect: 0
+    words: []
   };
 
   componentDidMount() {
-    LanguageApiService.getLanguage()
-      .then(lang =>
-        this.setState({
-          language: lang.language,
-          words: lang.words
-        })
-      )
-      .then(() => console.log("")); // removed console log; inner text was ("state:", this.state)
+    LanguageApiService.getLanguage().then(lang =>
+      this.setState({
+        language: lang.language,
+        words: lang.words
+      })
+    );
   }
 
-  handleUpdateScore(corScore, incorScore) {
-    this.setState({
-      correct: corScore,
-      incorrect: incorScore
+  calcScore() {
+    let totalCorrect = 0;
+    let totalIncorrect = 0;
+    this.renderWords(this.state.words).map(word => {
+      totalCorrect = totalCorrect + word.correct;
+      totalIncorrect = totalIncorrect + word.incorrect;
     });
+    return [totalCorrect, totalIncorrect];
+  }
+
+  renderWords(words) {
+    let kAlphabet = [];
+    words.map(word =>
+      kAlphabet.push({
+        hour: word.original,
+        key: uuidv4(),
+        index: 1,
+        value: word.correct_count - word.incorrect_count,
+        correct: word.correct_count,
+        incorrect: word.incorrect_count
+      })
+    );
+    return kAlphabet;
   }
 
   render() {
@@ -42,11 +61,7 @@ class DashboardRoute extends Component {
             width="167px"
             className="langImg"
           />
-          <Gauge
-            updateScore={this.handleUpdateScore}
-            correct={this.state.correct}
-            incorrect={this.state.incorrect}
-          />
+          <Gauge score={this.calcScore()} />
         </div>
         <button className="start-button">
           <Link
@@ -59,7 +74,13 @@ class DashboardRoute extends Component {
         <div className="second-row">
           <h3>Alphabet-specific Scores</h3>
           <div className="bubbleChart">
-            <Progress language={this.state.language} words={this.state.words} />
+            <Progress
+              language={this.state.language}
+              kAlphabet={this.renderWords(this.state.words)}
+              handleUpdateScore={this.handleUpdateScore}
+              correct={this.state.correct}
+              incorrect={this.state.incorrect}
+            />
           </div>
         </div>
       </div>
