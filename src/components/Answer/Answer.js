@@ -11,12 +11,6 @@ class Answer extends Component {
     }
   }
 
-  // handleNext(e) {
-  //   e.preventDefault()
-  //   console.log('next');
-  //   this.props.history.push('/');
-  // }
-
 
   render() {
 

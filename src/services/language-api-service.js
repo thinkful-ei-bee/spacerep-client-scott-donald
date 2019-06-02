@@ -33,7 +33,6 @@ const LanguageApiService = {
     return fetch(`${config.API_ENDPOINT}/language/guess`, {
       method: 'POST',
       headers: {
-        //do I need content-type here?
         'content-type': 'application/json',
         'authorization': `Bearer ${TokenService.getAuthToken()}`,
       },

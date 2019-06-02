@@ -22,12 +22,6 @@ class LearningRoute extends Component {
       resAnswer: '',
       resIsCorrect: false
     }
-    // resNextWord: '',
-    // resWordCorrectCount: null,
-    // resWordIncorrectCount: null,
-    // resTotalScore: null,
-    // resAnswer: '',
-    // resIsCorrect: false
 
 
   }
@@ -43,29 +37,15 @@ class LearningRoute extends Component {
           wordIncorrectCount: res.wordIncorrectCount 
         })
       )
-      .then(() => console.log('state:', this.state))
   }
 
   componentDidMount() {
-    // LanguageApiService.getHead()
-    //   .then(res => 
-    //     this.setState({
-    //       asking: true,
-    //       nextWord: res.nextWord,
-    //       totalScore: res.totalScore,
-    //       wordCorrectCount: res.wordCorrectCount,
-    //       wordIncorrectCount: res.wordIncorrectCount 
-    //     })
-    //   )
-    //   .then(() => console.log('state:', this.state))
     this.getHead();
   }
 
   handleGuess(guess) {
-    console.log(guess);
     LanguageApiService.postGuess(guess)
       .then(res => {
-        console.log('res', res)
         this.setState({
           asking: false,
           response: {
@@ -76,20 +56,12 @@ class LearningRoute extends Component {
             answer: res.answer,
             isCorrect: res.isCorrect
           }
-          // resNextWord: res.nextWord,
-          // resWordCorrectCount: res.wordCorrectCount,
-          // resWordIncorrectCount: res.wordIncorrectCount,
-          // resTotalScore: res.totalScore,
-          // resAnswer: res.answer,
-          // resIsCorrect: res.isCorrect
         })
       })
-      .then(() => console.log('response:', this.state))
   }
 
   handleNext(e) {
-    e.preventDefault()
-    console.log('next');
+    e.preventDefault();
     this.getHead();
   }
 

@@ -71,7 +71,6 @@ class Header extends Component {
       <header>
         <h1>
           <Link to="/" style={{ textDecoration: "none", color: "#1cb0f6" }}>
-            {/* Learn to Read русский! */}
             Learn to Read Кириллица!
           </Link>
         </h1>
