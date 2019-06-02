@@ -17,8 +17,7 @@ class RegistrationRoute extends Component {
     return (
       <section>
         <p>
-          Practice reading Кириллица (Cyrillic) with the spaced reptition
-          revision technique.
+          Practice reading Кириллица (Cyrillic) with the spaced repetition technique.
         </p>
         <h2 className="widget">Sign up</h2>
         <RegistrationForm

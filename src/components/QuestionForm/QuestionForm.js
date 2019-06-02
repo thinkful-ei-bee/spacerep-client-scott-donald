@@ -57,7 +57,7 @@ class QuestionForm extends Component {
           {error && <p className='red'>{error}</p>}
         </div>
         <label htmlFor='learn-guess-input'>Translation:</label>
-        <input type='text' id='learn-guess-input' 
+        <input type='text' id='learn-guess-input' required
           onChange={event => this.updateGuess(event.target.value)}
         />
         <br/>
