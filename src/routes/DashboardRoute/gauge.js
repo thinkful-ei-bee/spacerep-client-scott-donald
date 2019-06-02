@@ -99,8 +99,16 @@ export default class Example extends PureComponent {
       { name: "некорректный", value: this.props.score[1] }
     ];
 
+    const isZero = this.props.score[0] +this.props.score[1]
+
     return (
-      <PieChart width={450} height={320} className="viz piechart">
+      <div className="viz piechart">
+      {(isZero === 0) ? (<p className="noscore">
+      No score recorded - start the quiz to see your score!
+      </p>
+
+        ) : (
+        <PieChart width={450} height={320} >
         <Pie
           activeIndex={this.state.activeIndex}
           activeShape={renderActiveShape}
@@ -118,6 +126,10 @@ export default class Example extends PureComponent {
           ))}
         </Pie>
       </PieChart>
+        )
+
+      }
+      </div>
     );
   }
 }
