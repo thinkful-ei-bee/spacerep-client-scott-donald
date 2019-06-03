@@ -122,7 +122,7 @@ export default class Example extends PureComponent {
           onMouseEnter={this.onPieEnter}
         >
           {data.map((entry, index) => (
-            <Cell fill={COLORS[index % COLORS.length]} />
+            <Cell key={index} fill={COLORS[index % COLORS.length]} />
           ))}
         </Pie>
       </PieChart>

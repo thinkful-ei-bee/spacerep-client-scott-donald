@@ -64,11 +64,11 @@ class LoginForm extends Component {
             required
           />
         </div>
-        <Button type="submit">LOGIN</Button>
-        {/* <Link to="/" className="login-redirect">
+        <Button type="submit">LOGIN</Button> <br/>
+        <Link to="/" className="login-redirect">
           Need to signup?
-        </Link> */}
-        <a href="/register" className="login-redirect">Sign up</a>
+        </Link>
+        {/* <a href="/register" className="login-redirect">Sign up</a> */}
       </form>
     );
   }
