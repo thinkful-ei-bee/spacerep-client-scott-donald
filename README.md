@@ -1,5 +1,11 @@
 # Spaced Repetition Capstone
 
+The spaced repetition technique is a learning technique where the learner is exposed to new information in increasingly large intervals. Learn more about spaced repetition [here](https://en.wikipedia.org/wiki/Spaced_repetition).  In this project, we utilized the spaced repetition technique and built an app that teaches users the Russian variety of the [cyrillic alphabet](https://en.wikipedia.org/wiki/Cyrillic_alphabets).  Users are asked to translate a cyrillic letter into it's english, Latin alphabet equivalent e.g. (д => d).  Correct answers result in increasingly large gaps before being shown the letter again, while incorrect answers result in seeing that letter more frequently.
+
+Built in 5 days, this full stack project uses a Linked List data structure and was a valuable exercise in team development.
+
+Created by Scott Williams and Donald Sonn.
+
 ## Setup
 
 To setup the application
@@ -7,41 +13,34 @@ To setup the application
 1. Fork and clone the project to your machine
 2. `npm install`. This will also install the application *Cypress.io* for running browser integration tests
 
-The project expects you have the Spaced repetition API project setup and running on http://localhost:8000.
+The project uses this [API](https://github.com/thinkful-ei-bee/spacerep-scott-donald-api).
 
-Find instructions to setup the API here https://github.com/Thinkful-Ed/spaced-repetition-api.
+## Live App
 
-## Running project
+[Live App](https://spaced-repetition-cyrillic.dsonn.now.sh/). 
 
-This is a `create-react-app` project so `npm start` will start the project in development mode with hot reloading by default.
+## Screenshots
 
-## Running the tests
+![Dashboard]()
 
-This project uses [Cypress IO](https://docs.cypress.io) for integration testing using the Chrome browser.
+![Learning Page]()
 
-Cypress has the following expectations:
 
-- You have cypress installed (this is a devDependency of the project)
-- You have your application running at http://localhost:3000.
-  - You can change the address of this expectation in the `./cypress.json` file.
-- Your `./src/config.js` is using http://localhost:8000/api as the `API_ENDPOINT`
+## API
 
-To start the tests run the command:
+[Server Repo](https://github.com/thinkful-ei-bee/spacerep-scott-donald-api).
 
-```bash
-npm run cypress:open
-```
+## Demo
+Create an account or use the demo credentials below
 
-On the first run of this command, the cypress application will verify its install. Any other runs after this, the verification will be skipped.
+Username: testuser
 
-The command will open up the Cypress application which reads tests from the `./cypress/integration/` directory. You can then run individual tests by clicking on the file names or run all tests by clicking the "run all tests" button in the cypress GUI.
+Password: abcA10!@
 
-Tests will assert against your running localhost client application.
+## Tech
 
-You can also start all of the tests in the command line only (not using the GUI) by running the command:
-
-```bash
-npm run cypress:run
-```
-
-This will save video recordings of the test runs in the directory `./cypress/videos/`.
+* JavaScript ES6
+* React
+* Express
+* PostgreSQL
+* Cypress
