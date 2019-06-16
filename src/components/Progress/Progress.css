@@ -1,3 +1,14 @@
+@media only screen and (max-width: 800px) {
+  .viz tspan  {
+    font-size: .6em;
+  }
+}
+
+.recharts-wrapper {
+  width: 100% !important;
+}
+
+
 .progress-section {
   border: solid black 1px;
   width: 50%;
@@ -27,6 +38,16 @@
   margin: 300px 300px 300px 300px;
 }
 
+
 .alphabet-score {
   margin: auto;
 }
+
+
+/* experimenting with styling */
+
+
+
+/* .recharts-surface {
+  width: 100%;
+} */

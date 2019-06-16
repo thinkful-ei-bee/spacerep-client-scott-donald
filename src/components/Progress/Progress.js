@@ -46,7 +46,13 @@ class Progress extends Component {
     return null;
   };
 
+  
+
   render() {
+
+    // const isMobile = window.innerWidth < 480;
+    const screenWidth = window.innerWidth;
+
     const { kAlphabet } = this.props;
     const range = [16, 225];
 
@@ -57,7 +63,8 @@ class Progress extends Component {
     return (
       <div className="viz">
         <ScatterChart
-          width={800}
+          // width={800}
+          width={screenWidth}
           height={60}
           margin={{
             top: 10,
@@ -101,7 +108,8 @@ class Progress extends Component {
         </ScatterChart>
 
         <ScatterChart
-          width={800}
+          // width={800}
+          width={screenWidth}
           height={60}
           margin={{
             top: 10,

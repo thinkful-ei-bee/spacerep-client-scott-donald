@@ -33,8 +33,9 @@ h3 {
 .first-row {
   position: relative;
   top: -60px;
-  margin-left: 100px;
-  margin-right: auto;
+  /* margin-left: 100px; */
+  /* margin-right: auto; */
+  margin: auto;
   text-align: center;
 }
 

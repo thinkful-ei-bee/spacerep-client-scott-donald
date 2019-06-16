@@ -51,13 +51,13 @@ class DashboardRoute extends Component {
     return (
       <div>
         <div className="first-row">
-          <img
+          {/* <img
             src="https://i.imgur.com/OV2l6KA.png"
             alt=""
             height="208px"
             width="167px"
             className="langImg"
-          />
+          /> */}
           <Gauge score={this.calcScore()} />
         </div>
         <button className="start-button">
