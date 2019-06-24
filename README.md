@@ -15,7 +15,7 @@ To setup the application
 
 The project uses this [API](https://github.com/thinkful-ei-bee/spacerep-scott-donald-api).
 
-## [Live App](https://spaced-repetition-cyrillic.dsonn.now.sh/). 
+## [Live App](https://learn-cyrillic.now.sh/). 
 
 ## Screenshots
 
